@@ -29,7 +29,7 @@ public class Runner {
 //        7. Print the number of islands in your arraylist
         System.out.println(scottishIslands.size());
 //        8. Sort the list alphabetically
-            Collections.sort(scottishIslands);
+        Collections.sort(scottishIslands);
 //        9. Print out all the islands using a for loop
         for (String island : scottishIslands){
             System.out.println(island);
@@ -80,17 +80,29 @@ public class Runner {
 //           ...except the number 13 is unlucky, so it does not count...
 //           ...and numbers that come immediately after a 13 also do not count.
 //          So [2, 7, 13, 2] would have sum of 9.
+
         int total2 = 0;
         for (int i = 0; i < numbers.size(); i++) {
             if(numbers.get(i) == 13){
                 i++;
-            } else {
+            } else{
                 total2 += numbers.get(i);
             }
         }
         System.out.println(total2);
 
 
+        int total13 = 0;
+        numbers.add(0);
+        for (int i = 0; i < numbers.size(); i++) {
+            if(numbers.get(i) == 13){
+                if(numbers.get(i+1) != 13){
+                    i++;
+                }
+            } else{
+                total13 += numbers.get(i);
+            }
+        }numbers.remove(numbers.size()-1);
+        System.out.println(total13);
     }
-
 }
